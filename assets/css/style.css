@@ -1,0 +1,84 @@
+.page-header{
+	border-width: 5px;
+	margin: 0;
+	padding: 1rem;
+}
+
+.back{
+	position: relative;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper{
+	position: absolute;
+	margin: auto;
+	width: 960px;
+	top: 20px;
+	left: 0;
+	width: 100%;	
+	padding: 0 5rem;
+}
+
+body{
+	color: skyblue;
+	margin: 0;
+	padding: 0;
+}
+
+.pic{
+	width: 14rem;
+	height: 9rem;
+}
+
+.profile{
+	background: white;
+	width: 15rem;
+	text-align: center;
+	color: black;
+	font-weight: 900;
+	border: 0.5rem solid lime;
+	margin: 0 1rem;
+}
+
+.enemy{
+	background: red;
+	width: 15rem;
+	text-align: center;
+	color: black;
+	font-weight: 900;
+	border: 0.5rem solid lime;
+	margin: 0 1rem;
+	display: none;
+}
+
+.defender{
+	background: black;
+	color: white;
+	width: 15rem;
+	text-align: center;
+	font-weight: 900;
+	border: 0.5rem solid lime;
+	margin: 0 1rem;
+	display: none;
+}
+
+p{
+	margin: 0;
+	padding: 0;
+}
+
+.picRow{
+	height: 15rem;
+}
+
+button{
+	margin: 2.3rem;
+}
+
+#restart{
+	display: none;
+}
+
+

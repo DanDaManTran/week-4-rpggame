@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RPGGame</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+	<img classe="back" src="assets/images/back.jpg">
+		<div class="wrapper">
+			<div class="container">
+				<div class="page-header">
+					<h3>Battle for Middle Earth</h3>
+				</div>
+			</div>
+			
+			<div>
+				<h3>Choose Your Character</h3>
+			</div>
+
+			<!-- choosing hero -->
+			<div class="row container picRow">
+				<div id="hero0" class="profile pull-left">
+					<p>The Witch King</p>
+					<img class="pic" src="assets/images/char0.jpg">
+					<p id="hero0HP">120</p>
+				</div>
+
+				<div id="hero1" class="profile pull-left">
+					<p>Gollum</p>
+					<img class="pic" src="assets/images/char1.jpg">
+					<p id="hero1HP">100</p>
+				</div>
+
+				<div id="hero2" class="profile pull-left">
+					<p>Frodo Baggins</p>
+					<img class="pic" src="assets/images/char2.jpg">
+					<p id="hero2HP">150</p>
+				</div>
+
+				<div id="hero3" class="profile pull-left">
+					<p>Gandalf the Grey</p>
+					<img class="pic" src="assets/images/char3.jpg">
+					<p id="hero3HP">180</p>
+				</div>
+			</div>
+
+			<div>
+				<h3>Enemies Available To Attack</h3>
+			</div>
+
+			<!-- enemies -->
+			<div class="row container picRow">
+				<div id="enemy0" class="enemy pull-left">
+					<p>The Witch King</p>
+					<img class="pic" src="assets/images/char0.jpg">
+					<p>120</p>
+				</div>
+
+				<div id="enemy1" class="enemy pull-left">
+					<p>Gollum</p>
+					<img class="pic" src="assets/images/char1.jpg">
+					<p>100</p>
+				</div>
+
+				<div id="enemy2"class="enemy pull-left">
+					<p>Frodo Baggins</p>
+					<img class="pic" src="assets/images/char2.jpg">
+					<p>150</p>
+				</div>
+
+				<div id="enemy3" class="enemy pull-left">
+					<p>Gandalf the Grey</p>
+					<img class="pic" src="assets/images/char3.jpg">
+					<p>180</p>
+				</div>
+			</div>
+			<div class="row">
+				<h3 class="pull-left">Fight Selection</h3>
+				
+				<button id="attack" class="button pull-left btn-danger">Attack</button>
+
+				<button id="restart" class="button pull-left btn-danger">Restart</button>
+
+				<h5 id="status"></h5>
+
+
+			</div>
+
+			<div>
+				<h3>Defender</h3>
+			</div>
+
+			<!-- defending -->
+			<div class="row container picRow">
+				<div id="defend0" class="defender pull-left">
+					<p>The Witch King</p>
+					<img class="pic" src="assets/images/char0.jpg">
+					<p id="defend0HP">120</p>
+				</div>
+
+				<div id="defend1" class="defender pull-left">
+					<p>Gollum</defenderp>
+					<img class="pic" src="assets/images/char1.jpg">
+					<p id="defend1HP">100</p>
+				</div>
+
+				<div id="defend2" class="defender pull-left">
+					<p>Frodo Baggins</p>
+					<img class="pic" src="assets/images/char2.jpg">
+					<p id="defend2HP">150</p>
+				</div>
+
+				<div id="defend3" class="defender pull-left">
+					<p>Gandalf the Grey</p>
+					<img class="pic" src="assets/images/char3.jpg">
+					<p id="defend3HP">180</p>
+				</div>
+			</div>
+
+
+		</div>
+	
+	<script type="text/javascript">
+		var hero;
+		var gameEnd=0;
+		var defendNum;
+		var char = []
+
+		function restartFun(){
+			hero=null;
+			gameEnd=0;
+			defendNum=null;
+			char = [
+			["The Witch King", 120, 8, 8], 
+			["Golum", 100, 5, 5], 
+			["Frodo Baggins", 150, 20,20], 
+			["Gandalf the Grey", 180, 25, 25]]
+			for(var i=0; i<char.length; i++){
+				$("#hero"+i).show();
+				$("#enemy"+i).hide();
+				$("#defend"+i).hide();
+				$("#hero"+i+"HP").html(char[i][1]);
+			}
+			$("#restart").hide();
+			$("#status").html("");
+		}
+
+		//click a hero and the other choses becomes enemy
+		function heroSelect(){
+			for(var i=0; i<char.length; i++){
+				if(i!==hero){
+					$("#hero"+i).hide();
+				}
+			}
+
+			for(var i=0; i<char.length; i++){
+				if(i!==hero){
+					$("#enemy"+i).show();
+				}
+			}
+		}
+
+		//Showing who you are attacking
+		function defender(){
+			for(var i=0; i<4; i++){
+				if(i===defendNum){
+					$("#enemy"+i).hide();
+					$("#defend"+i).show();
+				}
+			}
+		}
+
+		restartFun();
+		$("document").ready(function(){
+			//clicking on a hero and the rest becomes your enemy
+			$("#hero0").click(function(){
+				if(hero==null) {
+					hero = 0;
+					heroSelect();
+				}
+			});
+			$("#hero1").click(function(){
+				if(hero==null){
+					hero = 1;
+					heroSelect();
+				}
+			});
+			$("#hero2").click(function(){
+				if(hero==null){
+					hero = 2;
+					heroSelect();
+				}
+			});
+			$("#hero3").click(function(){
+				if(hero==null) {
+					hero = 3;
+					heroSelect();
+				}
+			});
+			//clicking on enemy will show defender and get you ready for battle
+			$("#enemy0").click(function(){
+				if(defendNum==null){
+					defendNum = 0;
+					defender();
+				}
+			});
+			$("#enemy1").click(function(){
+				if(defendNum==null){
+					defendNum = 1;
+					defender();
+				}
+			});
+			$("#enemy2").click(function(){
+				if(defendNum==null){
+					defendNum = 2;
+					defender();
+				}
+			});
+			$("#enemy3").click(function(){
+				if(defendNum==null){
+					defendNum = 3;
+					defender();
+				}
+			});
+
+			$("#attack").click(function(){
+				//checking if a hero and a defender has been choosen and if both have been choosen they attack each other updating their HP and showing the status of the battle.
+
+				if(hero==null){
+					$("#status").html("No Character has been choosen");
+				} else if(defendNum==null){
+					$("#status").html("No enemy has been choosen");
+				} else{
+					char[defendNum][1]-=char[hero][2];
+					$("#hero"+hero+"HP").html(char[hero][1]);
+					$("#defend"+defendNum+"HP").html(char[defendNum][1]);
+					$("#status").html("You attacked " + char[defendNum][0] +" for " + char[hero][2] + " damage");
+					$("#status").append($("<h5>").html(char[defendNum][0]+ " attacked you back for " + char[defendNum][3]+" damage"));
+					char[hero][2]+=char[hero][3];
+				}
+
+				if(gameEnd==3){
+					$("#status").html("You Won!!!! GAMEOVER!!!");
+					$("#restart").show();
+				}
+
+				//after the battle this will check if anyone HP reaches or pass zero so we can declare death.
+				if(char[hero][1]<=0){
+					$("#restart").show();
+					$("#status").html("You been defeated.... GAME OVER")
+					for(var i=0; i<char.length; i++){
+						char[i][2]=0;
+					}
+				} else if(char[defendNum][1]<=0){
+					$("#status").html("You defeated " + char[defendNum][0]);
+					$("#defend"+defendNum).hide();
+					gameEnd+=1;
+					defendNum=null;
+				} else {
+					char[hero][1]-=char[defendNum][2];
+				}
+				//just incase they continue to cllick on attack the status doesn't change
+				if(gameEnd==3){
+					$("#status").html("You Won!!!! GAMEOVER!!!");
+					$("#restart").show();
+				}
+			});
+
+			//restart the game
+			$("#restart").click(function(){
+				restartFun();
+			});
+
+
+
+
+		});
+	</script>
+
+</body>
+</html>
