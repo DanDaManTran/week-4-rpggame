@@ -1,9 +1,12 @@
+
+/*increasing the width and inputing some padding*/
 .page-header{
 	border-width: 5px;
 	margin: 0;
 	padding: 1rem;
 }
 
+/*creating the background from a picture*/
 .back{
 	position: relative;
 	width: 100%;
@@ -11,6 +14,7 @@
 	padding: 0;
 }
 
+/*standard wrapper*/
 .wrapper{
 	position: absolute;
 	margin: auto;
@@ -21,17 +25,20 @@
 	padding: 0 5rem;
 }
 
+/*removing the body margin and padding and changing the text to skyblue*/
 body{
 	color: skyblue;
 	margin: 0;
 	padding: 0;
 }
 
+/*resizing the picture so it can fit in each of the div*/
 .pic{
 	width: 14rem;
 	height: 9rem;
 }
 
+/*changing the div so it can fit the name picture and HP*/
 .profile{
 	background: white;
 	width: 15rem;
@@ -42,6 +49,7 @@ body{
 	margin: 0 1rem;
 }
 
+/*changing the div so it can fit the name picture and HP*/
 .enemy{
 	background: red;
 	width: 15rem;
@@ -53,6 +61,7 @@ body{
 	display: none;
 }
 
+/*changing the div so it can fit the name picture and HP*/
 .defender{
 	background: black;
 	color: white;
@@ -64,19 +73,23 @@ body{
 	display: none;
 }
 
+/*removing the padding and margin for all the p tags*/
 p{
 	margin: 0;
 	padding: 0;
 }
 
+/*resizing the row so it there isn't much spacing between each rows*/
 .picRow{
 	height: 15rem;
 }
 
+/*giving some spacing around the buttons*/
 button{
 	margin: 2.3rem;
 }
 
+/*hiding the restart button until game is over*/
 #restart{
 	display: none;
 }
