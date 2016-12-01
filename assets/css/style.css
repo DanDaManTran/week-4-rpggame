@@ -94,4 +94,9 @@ button{
 	display: none;
 }
 
-
+footer{
+	font-size: 2rem;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
